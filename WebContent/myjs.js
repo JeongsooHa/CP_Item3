@@ -198,19 +198,7 @@
     load();  // load an initial diagram from some JSON text
 
     // initialize the Palette that is on the left side of the page
-    myPalette =
-      $(go.Palette, "myPaletteDiv",  // must name or refer to the DIV HTML element
-        {
-          "animationManager.duration": 800, // slightly longer than default (600ms) animation
-          nodeTemplateMap: myDiagram.nodeTemplateMap,  // share the templates used by myDiagram
-          model: new go.GraphLinksModel([  // specify the contents of the Palette
-            { category: "Start", text: "Start" },
-            { text: "Step" },
-            { text: "???", figure: "Diamond" },
-            { category: "End", text: "End" },
-            { category: "Comment", text: "Comment" }
-          ])
-        });
+
 
   }
 
