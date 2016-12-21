@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="ucodegen.*" %>
 <%
 	String cCodetext = request.getParameter("ccodetext");
 	String trimcCodetext= cCodetext.replaceAll("\r\n", " ");
 	trimcCodetext =trimcCodetext.replaceAll("\t", " ");
-	String test;
-	System.out.println(trimcCodetext);
+	String[] test = new String[5];
+	UcodeCodeGen.main(test);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
