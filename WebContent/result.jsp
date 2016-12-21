@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ucodegen.*" %>
+<%@ page import="ucodegen.UcodeCodeGen" %>
+<%@ page import="ucodegen.UcodeGenListener" %>
+<%@ page import="antlrMiniC.*" %>
 <%
 	String cCodetext = request.getParameter("ccodetext");
 	String trimcCodetext= cCodetext.replaceAll("\r\n", " ");
 	trimcCodetext =trimcCodetext.replaceAll("\t", " ");
-	String[] test = new String[5];
-	UcodeCodeGen.main(test);
+	UcodeCodeGen.minic2ucode(trimcCodetext);
+	//UcodeCodeGen.test("abc");
+	//UcodeCodeGen.minic2ucode(trimcCodetext);
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -49,6 +52,8 @@
 		<footer class="footer">
         	<p>© Compiler 2016 고현민, 하정수</p>
       	</footer>
-	</div>	
+	</div>
+			<script src="./go.js"></script>
+			<script src="./myjs.js"></script>	
 </body>
 </html>
