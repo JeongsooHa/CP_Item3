@@ -7,7 +7,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 public class UcodeCodeGen {
 
 	public static void main(String[] args) throws Exception{
-		minic2ucode("test2.c");
+		minic2ucode("test3.c");
 	}
 	static void minic2ucode(String mcFile) throws Exception{
 		MiniCLexer lexer 			= new MiniCLexer(new ANTLRFileStream(mcFile));
