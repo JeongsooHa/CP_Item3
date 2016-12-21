@@ -27,17 +27,17 @@
 			</nav>
 			<h3 class="text-muted" ><b>Compiler Item3</b></h3>
 		</div>
-		<div class="jumbotron">
-			<div class ="row">
-				<div class="col-md-4" id="ucodediv" style="border: solid 1px black;">
+		<div class="jumbotron" >
+			<div class ="row" >
+				<div class="col-md-4" id="ucodediv" style="border: solid 1px black; height:400px;">
 					U code
 				</div>
-				<div class="col-md-7 col-md-offset-1" id="controlflowgraphdiv" style="border: solid 1px black;">
+				<div class="col-md-7 col-md-offset-1" id="controlflowgraphdiv" style="border: solid 1px black; height:400px;">
 					Control Flow Graph
 				</div>
 			</div>
-			<div class ="row">
-				<div class="col-md-12" id="groupblockdiv" style="border: solid 1px black; ">
+			<div class ="row" >
+				<div class="col-md-12" id="groupblockdiv" style="border: solid 1px black; height:200px;">
 					Group Block
 				</div>
 			</div>
