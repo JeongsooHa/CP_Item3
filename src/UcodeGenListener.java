@@ -30,8 +30,10 @@ public class UcodeGenListener extends MiniCBaseListener{
 		System.out.print(newTexts.get(ctx));
 		System.out.println("           bgn "+(bgnOffset-1)+" ");
 		System.out.println("           proc "+(bgnOffset-1)+" "+blockLevel+" 1 ");
-		if(!temp.equals(""))
+		if(!temp.equals("")){
 			System.out.print(temp);
+			
+		}
 		System.out.println("           ldp ");
 		System.out.println("           call main ");
 		System.out.println("           end ");
