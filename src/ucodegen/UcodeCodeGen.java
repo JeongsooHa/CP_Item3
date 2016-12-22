@@ -24,6 +24,6 @@ public class UcodeCodeGen {
 		ParseTreeWalker walker = new ParseTreeWalker();
 		UcodeGenListener.sb="";
 		walker.walk(new UcodeGenListener(), tree);
-		return UcodeGenListener.sb.replaceAll("\n", "<br>").replaceAll(" ", "&nbsp");
+		return UcodeGenListener.sb.toString();
 	}
 }
