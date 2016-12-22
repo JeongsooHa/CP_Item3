@@ -1,9 +1,9 @@
-  function init() {
+  function init(jsonResult) {
     if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
     var $ = go.GraphObject.make;  // for conciseness in defining templates
 
     myDiagram =
-      $(go.Diagram, "myDiagramDiv",  // must name or refer to the DIV HTML element
+      $(go.Diagram, "controlflowgraphdiv",  // must name or refer to the DIV HTML element
         {
           initialContentAlignment: go.Spot.Center,
           allowDrop: true,  // must be true to accept drops from the Palette
@@ -195,10 +195,22 @@
     myDiagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
     myDiagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
 
-    load();  // load an initial diagram from some JSON text
+    load(jsonResult);  // load an initial diagram from some JSON text
 
     // initialize the Palette that is on the left side of the page
-
+    myPalette =
+        $(go.Palette, "myPaletteDiv",  // must name or refer to the DIV HTML element
+          {
+            "animationManager.duration": 800, // slightly longer than default (600ms) animation
+            nodeTemplateMap: myDiagram.nodeTemplateMap,  // share the templates used by myDiagram
+            model: new go.GraphLinksModel([  // specify the contents of the Palette
+              { category: "Start", text: "Start" },
+              { text: "Step" },
+              { text: "???", figure: "Diamond" },
+              { category: "End", text: "End" },
+              { category: "Comment", text: "Comment" }
+            ])
+          });
 
   }
 
@@ -217,8 +229,9 @@
     document.getElementById("mySavedModel").value = myDiagram.model.toJson();
     myDiagram.isModified = false;
   }
-  function load() {
-    myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+  function load(jsonResult) {
+	var test = document.getElementById("mySavedModel");
+    myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").innerHTML);
   }
 
   // add an SVG rendering of the diagram at the end of this page

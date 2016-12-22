@@ -4,10 +4,9 @@ import antlrMiniC.*;
 import java.util.HashMap;
 
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
-import org.stringtemplate.v4.compiler.STParser.ifstat_return;
 
 public class UcodeGenListener extends MiniCBaseListener{
-   
+   public static String sb = "";
    ParseTreeProperty<String> newTexts = new ParseTreeProperty<String>();
    HashMap<String, String> map = new HashMap<>();
    int blockLevel = 1;
@@ -30,15 +29,21 @@ public class UcodeGenListener extends MiniCBaseListener{
          }
       newTexts.put(ctx, decl);
       System.out.print(newTexts.get(ctx));
+      sb+=newTexts.get(ctx);
       System.out.println("           bgn "+(bgnOffset-1)+" ");
+      sb+="           bgn "+(bgnOffset-1)+" \n";
       System.out.println("           proc "+(bgnOffset-1)+" "+blockLevel+" 1 ");
+      sb+=("           proc "+(bgnOffset-1)+" "+blockLevel+" 1 \n");
       if(!temp.equals("")){
          System.out.print(temp);
-         
+         sb+=(temp);
       }
       System.out.println("           ldp ");
+      sb+=("           ldp \n");
       System.out.println("           call main ");
+      sb+=("           call main \n");
       System.out.println("           end ");
+      sb+=("           end \n");
    }
    
    // decl   : var_decl | fun_decl
