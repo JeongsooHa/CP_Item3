@@ -7,9 +7,9 @@
 	String cCodetext = request.getParameter("ccodetext");
 	String trimcCodetext= cCodetext.replaceAll("\r\n", " ");
 	trimcCodetext =trimcCodetext.replaceAll("\t", " ");
-	UcodeCodeGen.minic2ucode(trimcCodetext);
-	//UcodeCodeGen.test("abc");
-	//UcodeCodeGen.minic2ucode(trimcCodetext);
+	String result = UcodeCodeGen.minic2ucode(trimcCodetext);
+	String blockResult = null;
+	String jsonResult = null;
 %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
 <title>RESULT PAGE</title>
 
 </head>
-<body>
+<body onload="init(<%=jsonResult%>)">
 	<div class="container">
 		<div class="header">
 			<nav>
@@ -36,15 +36,18 @@
 		</div>
 		<div class="jumbotron" >
 			<div class ="row" >
-				<div class="col-md-4" id="ucodediv" style="border: solid 1px black; height:400px;">
-					U code
+				<label for="ucodeResult" class="col-md-4 control-label">U Code</label>
+				<label for="cfgResult" class="col-md-7 col-md-offset-1 control-label">CFG</label>
+				<div class="col-md-4 well pre-scrollable" id="ucodediv" style="border: solid 1px black; background: white;">
+					<span id="ucodeResult"><%=result %></span>
 				</div>
-				<div class="col-md-7 col-md-offset-1" id="controlflowgraphdiv" style="border: solid 1px black; height:400px;">
-					Control Flow Graph
+				<div class="col-md-7 col-md-offset-1 well" id="controlflowgraphdiv" style="border: solid 1px black; background: white; height:400px;">
+					<div id="myDiagramDiv"></div>
 				</div>
 			</div>
 			<div class ="row" >
-				<div class="col-md-12" id="groupblockdiv" style="border: solid 1px black; height:200px;">
+				<label for="groupBlockResult" class="col-md-12 control-label">Information</label>
+				<div class="col-md-12 well pre-scrollable" id="groupblockdiv" style="border: solid 1px black; background: white;height:200px;">
 					Group Block
 				</div>
 			</div>

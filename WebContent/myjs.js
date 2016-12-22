@@ -1,4 +1,4 @@
-  function init() {
+  function init(jsonResult) {
     if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
     var $ = go.GraphObject.make;  // for conciseness in defining templates
 
@@ -195,7 +195,7 @@
     myDiagram.toolManager.linkingTool.temporaryLink.routing = go.Link.Orthogonal;
     myDiagram.toolManager.relinkingTool.temporaryLink.routing = go.Link.Orthogonal;
 
-    load();  // load an initial diagram from some JSON text
+    load(jsonResult);  // load an initial diagram from some JSON text
 
     // initialize the Palette that is on the left side of the page
 
@@ -217,8 +217,8 @@
     document.getElementById("mySavedModel").value = myDiagram.model.toJson();
     myDiagram.isModified = false;
   }
-  function load() {
-    myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+  function load(jsonResult) {
+    myDiagram.model = go.Model.fromJson(jsonResult);
   }
 
   // add an SVG rendering of the diagram at the end of this page
