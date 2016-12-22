@@ -48,8 +48,8 @@ public class JsonProcess {
 		/***** linkDataArray *****/
 		JSONArray linkDataArray = new JSONArray();
 
-		for(int i = -1 ; i < 2 ; i++){
-			if(list.size() < 3 && i == 1){
+		for(int i = -1 ; i < 1 ; i++){
+			if(list.size() < 3){
 				break;
 			}
 			blockInfo = new JSONObject();
@@ -59,8 +59,8 @@ public class JsonProcess {
 			blockInfo.put("toPort", "T");
 			linkDataArray.add(blockInfo);
 		}
-		int i =2;
-		for(i = 2 ; i < list.size() ; i++){
+		int i =1;
+		for(i = 1; i < list.size() ; i++){
 			GroupBlock temp = list.get(i);
 			Instruction insTemp = temp.getLabelList().get(temp.getLabelList().size()-1);
 			if(i == list.size()-1)
