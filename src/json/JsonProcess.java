@@ -49,7 +49,7 @@ public class JsonProcess {
 		JSONArray linkDataArray = new JSONArray();
 
 		for(int i = -1 ; i < 1 ; i++){
-			if(list.size() < 3){
+			if(list.size() < 3 && i == 1){
 				break;
 			}
 			blockInfo = new JSONObject();
