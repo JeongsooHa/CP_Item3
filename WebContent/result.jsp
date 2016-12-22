@@ -4,10 +4,12 @@
 <%@ page import="ucodegen.UcodeGenListener" %>
 <%@ page import="antlrMiniC.*" %>
 <%
+	/* 
 	String cCodetext = request.getParameter("ccodetext");
 	String trimcCodetext= cCodetext.replaceAll("\r\n", " ");
 	trimcCodetext =trimcCodetext.replaceAll("\t", " ");
-	UcodeCodeGen.minic2ucode(trimcCodetext);
+	 UcodeCodeGen.minic2ucode(trimcCodetext);
+	 */
 	//UcodeCodeGen.test("abc");
 	//UcodeCodeGen.minic2ucode(trimcCodetext);
 %>
